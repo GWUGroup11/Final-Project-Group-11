@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="DATS6203 Project">
+    <meta name="author" content="Evan Carraway, Daniel Stevens">
+    <link rel="icon" href="https://www.gwu.edu/sites/all/themes/gwu_marketing/favicon.ico">
+    <title>Urban Density Deep Learning</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='jumbotron.css') }}" rel="stylesheet">
+
+  </head>
+
+  <body>
+	 <!-- Main navigation bar -->
+	 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="../">Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="../">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../search">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../history">History</a>
+            </li>
+		        <li class="nav-item">
+              <a class="nav-link" href="../about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/GWUGroup11/Final-Project-Group-11/">Source Code</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/search">
+          <input name="q" id="q" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button id="searchbutton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+      
+    </nav>
+
+    <!-- Main Chart Title Area -->
+    <main role="main">
+	  <!-- Main text body -->
+      <div class="container" style="padding-top:30px;">
+       <h1 style="text-align:center;padding-top:50px;vertical-align:middle">Deep Learning Urban Density</h1>
+			<p style="padding-top:20px;">The purpose of this project is to use deep learning to train a network that can measure building density of areas that are currently poorly mapped by using geospatial data and satellite images as input. This model could then potentially be used to measure the growth or expansion of any given area by comparing historical images to current ones. This problem was chosen due to the interest of our team having taken GIS and machine learning courses while in the George Washington University Data Science Masters program.
+			</p>
+        </div>
+        <hr>
+      </div>
+    <div class="jumbotron1">
+        <div class="container">
+          <div class="row" style="text-align:center;padding-top:50px;vertical-align:middle">
+          <div class="col-xs-6 col-md-4" style="vertical-align:middle;padding-top:15px;">
+            <a href="../search" class="btn btn-primary btn-lg btn-block" role="button">Location Search</a>
+            <p style="vertical-align:middle;padding-top:15px;">Classify locations' building density using satellite imagery based on latitude/longitude.</p>
+          </div>
+          <div class="col-xs-6 col-md-4" style="vertical-align:middle;padding-top:15px;">
+            <a href="../about" class="btn btn-primary btn-lg btn-block" role="button">About</a>
+            <p style="vertical-align:middle;padding-top:15px;">Click to learn more about this project.</p>
+          </div>
+          <div class="col-xs-6 col-md-4" style="vertical-align:middle;padding-top:15px;">
+            <a href="https://github.com/GWUGroup11/Final-Project-Group-11/" class="btn btn-primary btn-lg btn-block" role="button">Source Code</a>
+            <p style="vertical-align:middle;padding-top:15px;">Click to view source code for this project on Github.</p>
+          </div>
+          </div><!-- row -->
+          <h1 class="display-4" id="title_div" style="text-align:center;padding-top:5px;"></h1>
+          <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 svg-container" id="total_div"></div>
+        </div>
+      </div>
+
+    </main>
+	<hr>
+	<!-- Footer Area -->
+  <footer class="container">
+    <div class="row">
+      <div class="col-md-8">© Evan Carraway, Daniel Stevens 2019</div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="{{ url_for('static', filename='jquery-3.js') }}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='popper.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+</body></html>
