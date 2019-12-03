@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="DATS6203 Project">
+    <meta name="author" content="Evan Carraway, Daniel Stevens">
+    {{ refresher|safe }}
+    <link rel="icon" href="https://www.gwu.edu/sites/all/themes/gwu_marketing/favicon.ico">
+    <title>Urban Density Deep Learning</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='jumbotron.css') }}" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- Main navigation bar -->
+	 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="../">Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="../search">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../history">History</a>
+            </li>
+		        <li class="nav-item">
+              <a class="nav-link" href="../about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/GWUGroup11/Final-Project-Group-11/">Source Code</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/search">
+          <input name="q" id="q" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button id="searchbutton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+      
+    </nav>
+
+    <!-- Main Chart Title Area -->
+    <main role="main">
+      <div class="container" style="padding-top:10px;">  
+        <h3 align="center">Location Search</h2><br />  
+        <form style="padding-bottom:10px;">
+          <div class="form-group">
+            <input name="q" type="search" class="form-control" id="InputSearch1" aria-describedby="searchHelp" placeholder="Enter search" value="{{ q|safe }}">
+            <small id="searchHelp" class="form-text text-muted">Enter coordinates.</small>
+          </div>
+          <span style="padding-top:10px;"></span>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>  
+	  <!-- Main text body -->
+      <h1 style="text-align:center;padding-top:10px;vertical-align:middle">{{ density|safe }}</h1>
+      <div class="container" style="text-align:center;padding-top:20px;">
+       <img id="d" alt="Imagery Sample" src="{{ url_for('static', filename=picurl) }}">
+      </div>
+
+    </main>
+	<hr>
+	<!-- Footer Area -->
+    <footer class="container">
+        <div class="row">
+        <div class="col-md-8">© Evan Carraway, Daniel Stevens 2019</div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='jquery-3.js') }}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='popper.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</body></html>

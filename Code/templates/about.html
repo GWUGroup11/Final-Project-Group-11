@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="DATS6203 Project">
+    <meta name="author" content="Evan Carraway, Daniel Stevens">
+    <link rel="icon" href="https://www.gwu.edu/sites/all/themes/gwu_marketing/favicon.ico">
+    <title>Urban Density Deep Learning</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='jumbotron.css') }}" rel="stylesheet">
+
+  </head>
+
+  <body>
+	 <!-- Main navigation bar -->
+	 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="../">Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../search">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../history">History</a>
+            </li>
+		        <li class="nav-item active">
+              <a class="nav-link" href="../about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/GWUGroup11/Final-Project-Group-11/">Source Code</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/search">
+          <input name="q" id="q" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button id="searchbutton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+      
+    </nav>
+
+    <!-- Main Chart Title Area -->
+    <main role="main">
+	  <!-- Main text body -->
+      <div class="container" style="padding-top:30px;">
+       <h3>Objective</h3>
+        <p>The purpose of this project is to use deep learning to train a network that can measure building density of areas that are currently poorly mapped by using geospatial data and satellite images as input. This model could then potentially be used to measure the growth or expansion of any given area by comparing historical images to current ones. This problem was chosen due to the interest of our team having taken GIS and machine learning courses while in the <a href="https://www.programs.gwu.edu/graduate/data-science">George Washington University Data Science Masters program</a>.
+        </p>
+
+        <h3>Data</h3>
+        <p>There were many potential data sources of satellite images that could be used for this task, including Esri images and opensource platform data such as OpenStreetMap. For training purposes, the scope of the area to train was narrowed to the DC, Maryland, and Virginia region. This provided more than enough data to train our network as a proof of concept, but if needed in the future there are methods to generate more images off the original sources. In addition to unstructured satellite image data, we leveraged structured building coverage maps to help generate building density labels for the images. The building coverage maps we used were generated and open sourced by Microsoft for the entire United States and are available online as geoJSONs. To read more about the techniques they used to generate 125,192,184 building shapes, visit <a href="https://github.com/microsoft/USBuildingFootprints">this Github link</a>.
+        </p>
+        <p><img src="{{ url_for('static', filename='polymap.png') }}" class="img-fluid" alt="Building Polygons" title="Building Polygons"></p>
+
+        <h3>Tools Used</h3>
+        <p>This project leveraged a number of technologies and libraries during the preparation, analysis and presentation phase. The project is presented in the form of an interactive <a href="../">HTML page</a> using Python Flask, Bootstrap, CSS, and client-side JavaScript. It also leveraged a custom scraping and retrieval framework with Python, GeoPandas, Folium, Selenium and the Requests library for data retrieval and processing. Model training and image augmentation leveraged Tensorflow, Keras and OpenCV computer vision libraries. Source code management leveraged GitHub and Visual Studio Code.
+        </p>
+        <p><img src="{{ url_for('static', filename='scatter.png') }}" class="img-fluid" alt="Imagery Distribution" title="Imagery Distribution"></p>
+
+        <h3>Network and Framework Selection</h3>
+        <p>We opted to use a Convolutional Neural Network (CNN) due to its strengths in image processing and pattern recognition in addition to experimenting with Multi-Layer Perceptron (MLP) for benchmarking and comparison. While the plan started with a standard CNN, we implemented additional customizations to improve performance. We used the Keras framework to create the CNN network with Tensorflow as the back-end. We took roughly 9,000 training images and augmented them through 90, 180, 270 degree rotations and flips, creating over 50,000 augmented images and then ran them through multiple convolutional layers with fully connected layers with regularization, pooling and dropout to prevent overfitting against the training data. We used model checkpointing against validation loss using mean square error. While we pulled data from across DC, Maryland and Virginia, we upsampled urban areas to get a more even training distribution, and split our training and validation set geographically to prevent contamination from overlapping images.
+        </p>
+
+        <p><img src="{{ url_for('static', filename='cnnloss.png') }}" class="img-fluid" alt="CNN Loss" title="CNN Loss"></p>
+        
+        <h3>Architecture</h3>
+        <p>For architecture and computing/storage resources, this project leveraged Google Cloud Platform (GCP), Amazon Web Services (AWS) and Microsoft Azure infrastructure for multiple elements including the hosting and integration of the Python Flask. For the Flask app, we used <a href="https://azure.microsoft.com/en-us/services/app-service/web/">Azure Web Apps</a> which is a fully-managed web hosting platform supporting continuous integration/continuous deployment (CI/CD), application monitoring and metrics. Hosting of image data used GCP storage buckets, while model training and deep learning experimentation leveraged GCP and AWS GPU-backed compute instances.
+        </p>
+
+        </div>
+      </div>
+    </main>
+	<hr>
+    
+    <!-- Footer Area -->
+    <footer class="container">
+        <div class="row">
+        <div class="col-md-8">© Evan Carraway, Daniel Stevens 2019</div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='jquery-3.js') }}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='popper.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='bootstrap.js') }}"></script>
+</body></html>

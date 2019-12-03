@@ -50,13 +50,15 @@ def showsearch():
                 density = float(open ( '/home/site/wwwroot/static/tempmap_' + str(latitude) + '_' + str(longitude) + '.txt',"r" ).read())
                 if density > .3:
                     density = str(density) + ' (Dense Urban)'
-                elif density > .2:
+                elif density > .15:
                     density = str(density) + ' (Urban)'
                 elif density > .1:
+                    density = str(density) + ' (Light Urban)'
+                elif density > .05:
                     density = str(density) + ' (Suburban)'
                 elif density > .025:
                     density = str(density) + ' (Light Suburban)'
-                elif density > .001:
+                elif density > .015:
                     density = str(density) + ' (Rural)'
                 else:
                     density = str(density) + ' (Uninhabited)'
