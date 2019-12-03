@@ -1,16 +1,16 @@
-#---Group 11---#
+# Group 11
 
-image_miner.py:
+## image_miner.py:
 Mines and labels geospatial image data
 
-map.py:
-Applies lat/long labels to mined image data
+## map.py:
+Fetches and classifies images on web app server using cnn_500.hdf5
 
-app.py:
-Flask app to load cnn_500.hdf5 and classify any lat/long input as urban, rural, or suburban
+## app.py:
+Flask app to provide interface and interactive lat/long input. Also classifies images as urban, rural, or suburban based on density
 
-cnn_500.py:
-Python code used to build, train, and save the Covolutional Neural Network (cnn_500.hdf5) used in app.py
+## cnn_500.py:
+Python code used to build, train, and save the Covolutional Neural Network (cnn_500.hdf5) used in map.py
 
-geckodriver:
-Flask driver file
+## geckodriver:
+Firefox automation driver used to fetch images
