@@ -20,3 +20,9 @@ We opted to use a Convolutional Neural Network (CNN) due to its strengths in ima
 
 ## Architecture
 For architecture and computing/storage resources, this project leveraged Google Cloud Platform (GCP), Amazon Web Services (AWS) and Microsoft Azure infrastructure for multiple elements including the hosting and integration of the Python Flask. For the Flask app, we used Azure Web Apps which is a fully-managed web hosting platform supporting continuous integration/continuous deployment (CI/CD), application monitoring and metrics. Hosting of image data used GCP storage buckets, while model training and deep learning experimentation leveraged GCP and AWS GPU-backed compute instances.
+
+Imagery Density Classifier Web App
+https://dats6203.azurewebsites.net/
+
+Training Images (12 GB)
+https://storage.googleapis.com/dats6203/train.zip
